@@ -921,6 +921,7 @@ postgresql_configure_logging() {
     [[ -n "$POSTGRESQL_CLIENT_MIN_MESSAGES" ]] && postgresql_set_property "client_min_messages" "$POSTGRESQL_CLIENT_MIN_MESSAGES"
     [[ -n "$POSTGRESQL_LOG_LINE_PREFIX" ]] && postgresql_set_property "log_line_prefix" "$POSTGRESQL_LOG_LINE_PREFIX"
     ([[ -n "$POSTGRESQL_LOG_TIMEZONE" ]] && postgresql_set_property "log_timezone" "$POSTGRESQL_LOG_TIMEZONE") || true
+    [[ -n "$POSTGRESQL_LOG_DIRECTORY" ]] && postgresql_set_property "log_directory" "$POSTGRESQL_LOG_DIRECTORY"
 }
 
 ########################
