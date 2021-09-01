@@ -115,6 +115,10 @@ postgresql_validate() {
         empty_password_error "The values allowed for POSTGRESQL_LOG_TRUNCATE_ON_ROTATION are: yes or no"
     fi
 
+    if ! is_yes_no_value "$POSTGRESQL_LOGGING_COLLECTOR"; then
+        empty_password_error "The values allowed for POSTGRESQL_LOGGING_COLLECTOR are: yes or no"
+    fi
+
     if is_boolean_yes "$POSTGRESQL_ENABLE_LDAP" && [[ -n "$POSTGRESQL_LDAP_URL" ]] && [[ -n "$POSTGRESQL_LDAP_SERVER" ]]; then
         empty_password_error "You can not set POSTGRESQL_LDAP_URL and POSTGRESQL_LDAP_SERVER at the same time. Check your LDAP configuration."
     fi
@@ -929,6 +933,10 @@ postgresql_configure_logging() {
 
     if is_boolean_yes "$POSTGRESQL_LOG_TRUNCATE_ON_ROTATION"; then
         postgresql_set_property "log_truncate_on_rotation" "on"
+    fi
+
+    if is_boolean_yes "$POSTGRESQL_LOGGING_COLLECTOR"; then
+        postgresql_set_property "logging_collector" "on"
     fi
 }
 
