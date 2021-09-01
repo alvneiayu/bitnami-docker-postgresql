@@ -930,6 +930,7 @@ postgresql_configure_logging() {
     [[ -n "$POSTGRESQL_LOG_LINE_PREFIX" ]] && postgresql_set_property "log_line_prefix" "$POSTGRESQL_LOG_LINE_PREFIX"
     ([[ -n "$POSTGRESQL_LOG_TIMEZONE" ]] && postgresql_set_property "log_timezone" "$POSTGRESQL_LOG_TIMEZONE") || true
     [[ -n "$POSTGRESQL_LOG_DIRECTORY" ]] && postgresql_set_property "log_directory" "$POSTGRESQL_LOG_DIRECTORY"
+    [[ -n "$POSTGRESQL_LOG_STATEMENT" ]] && postgresql_set_property "log_statement" "$POSTGRESQL_LOG_STATEMENT"
 
     if is_boolean_yes "$POSTGRESQL_LOG_TRUNCATE_ON_ROTATION"; then
         postgresql_set_property "log_truncate_on_rotation" "on"
