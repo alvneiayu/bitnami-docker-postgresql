@@ -935,6 +935,7 @@ postgresql_configure_logging() {
     [[ -n "$POSTGRESQL_SYSLOG_FACILITY" ]] && postgresql_set_property "syslog_facility" "$POSTGRESQL_SYSLOG_FACILITY"
     [[ -n "$POSTGRESQL_SYSLOG_IDENT" ]] && postgresql_set_property "syslog_ident" "$POSTGRESQL_SYSLOG_IDENT"
     [[ -n "$POSTGRESQL_LOG_DURATION" ]] && postgresql_set_property "log_duration" "$POSTGRESQL_LOG_DURATION"
+    [[ -n "$POSTGRESQL_LOG_ERROR_VERBOSITY" ]] && postgresql_set_property "log_error_verbosity" "$POSTGRESQL_LOG_ERROR_VERBOSITY"
 
     if is_boolean_yes "$POSTGRESQL_LOG_TRUNCATE_ON_ROTATION"; then
         postgresql_set_property "log_truncate_on_rotation" "on"
