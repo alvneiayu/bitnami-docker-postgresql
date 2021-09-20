@@ -934,6 +934,7 @@ postgresql_configure_logging() {
     [[ -n "$POSTGRESQL_LOG_DESTINATION" ]] && postgresql_set_property "log_destination" "$POSTGRESQL_LOG_DESTINATION"
     [[ -n "$POSTGRESQL_SYSLOG_FACILITY" ]] && postgresql_set_property "syslog_facility" "$POSTGRESQL_SYSLOG_FACILITY"
     [[ -n "$POSTGRESQL_SYSLOG_IDENT" ]] && postgresql_set_property "syslog_ident" "$POSTGRESQL_SYSLOG_IDENT"
+    [[ -n "$POSTGRESQL_LOG_DURATION" ]] && postgresql_set_property "log_duration" "$POSTGRESQL_LOG_DURATION"
 
     if is_boolean_yes "$POSTGRESQL_LOG_TRUNCATE_ON_ROTATION"; then
         postgresql_set_property "log_truncate_on_rotation" "on"
